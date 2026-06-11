@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Scikal Website"
+version = "1.0.0"
+id = "artifacts/scikal-website"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22584
+
+[services.development]
+run = "pnpm --filter @workspace/scikal-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/scikal-website", "run", "build" ]
+publicDir = "artifacts/scikal-website/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22584"
+BASE_PATH = "/"

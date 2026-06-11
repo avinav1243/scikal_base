@@ -1,0 +1,20 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "wWuCm7Al7GOm5BupkbqZm"
+uri = "file://artifacts/scikal-website/src/assets/computational.jpg"
+type = "image"
+title = "computational biology bioinformatics data science network abstract"
+
+[[outputs]]
+id = "CSLxIg_DBvf_FKyh1ugh2"
+uri = "file://artifacts/scikal-website/src/assets/instrumentation.jpg"
+type = "image"
+title = "modern scientific laboratory equipment precision instrumentation close up"
+
+[[outputs]]
+id = "4xVK0tKbkBeX2Eyjv1sRE"
+uri = "file://artifacts/scikal-website/src/assets/hero-bg.jpg"
+type = "image"
+title = "modern corporate research facility abstract background"
