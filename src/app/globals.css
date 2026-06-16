@@ -1,26 +1,382 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode (next-themes toggles `.dark` on <html>). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ----------------------------------------------------------------------------
+   Design tokens
+   Light theme  -> derived from the SciKal logo (cyan ribbon -> navy wordmark)
+   Dark theme   -> matte black with luminous cyan accents
+---------------------------------------------------------------------------- */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a1622;
+
+  --card: #ffffff;
+  --card-foreground: #0a1622;
+
+  --popover: #ffffff;
+  --popover-foreground: #0a1622;
+
+  --muted: #f1f7fb;
+  --muted-foreground: #51677a;
+
+  --border: #dde9f1;
+  --input: #dde9f1;
+  --ring: #15b6e5;
+
+  --primary: #00558f; /* navy — from logo wordmark */
+  --primary-foreground: #ffffff;
+
+  --secondary: #15b6e5; /* cyan — from logo ribbon */
+  --secondary-foreground: #06212f;
+
+  --accent: #e7f5fc;
+  --accent-foreground: #004890;
+
+  /* Brand gradient stops (cyan -> navy, from the logo) */
+  --brand-from: #15b6e5;
+  --brand-via: #0a86c4;
+  --brand-to: #004890;
+
+  /* Soft glow used behind hero / blobs (names kept for compatibility) */
+  --glow-violet: rgba(21, 182, 229, 0.32); /* cyan glow */
+  --glow-blue: rgba(0, 72, 144, 0.26); /* navy glow */
+
+  --radius: 0.85rem;
 }
 
+.dark {
+  --background: #0a0a0a; /* matte black */
+  --foreground: #ededed;
+
+  --card: #111113;
+  --card-foreground: #ededed;
+
+  --popover: #0f0f11;
+  --popover-foreground: #ededed;
+
+  --muted: #15171a;
+  --muted-foreground: #9aa7b3;
+
+  --border: #21262b;
+  --input: #2a3036;
+  --ring: #29c0ef;
+
+  --primary: #29c0ef; /* bright cyan — pops on matte black */
+  --primary-foreground: #04161f;
+
+  --secondary: #5ab4e6;
+  --secondary-foreground: #04161f;
+
+  --accent: #11181d;
+  --accent-foreground: #bfe9fa;
+
+  --brand-from: #34c7f0; /* luminous cyan */
+  --brand-via: #1aa3e0;
+  --brand-to: #3a92d8; /* sky blue */
+
+  --glow-violet: rgba(41, 192, 239, 0.26); /* cyan glow */
+  --glow-blue: rgba(58, 146, 216, 0.22); /* blue glow */
+}
+
+/* ----------------------------------------------------------------------------
+   Tailwind theme mapping (inline -> resolves CSS vars at point of use,
+   so utilities like `bg-card`, `text-muted-foreground`, `border-border`
+   automatically follow the active theme)
+---------------------------------------------------------------------------- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-brand-from: var(--brand-from);
+  --color-brand-via: var(--brand-via);
+  --color-brand-to: var(--brand-to);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* Animations */
+  --animate-aurora: aurora 24s ease-in-out infinite;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-gradient: gradient-pan 6s ease infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(4%, -6%) scale(1.1);
+  }
+  66% {
+    transform: translate(-4%, 4%) scale(0.95);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Base layer
+---------------------------------------------------------------------------- */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* offset anchor scrolls so the sticky navbar doesn't cover headings */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--primary) 28%, transparent);
+    color: var(--foreground);
+  }
+
+  /* Themed, slim scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 9999px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Utilities
+---------------------------------------------------------------------------- */
+@layer utilities {
+  /* Brand gradient text */
+  .text-gradient {
+    background-image: linear-gradient(
+      110deg,
+      var(--brand-from),
+      var(--brand-via),
+      var(--brand-to)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Animated brand gradient text (pairs with animate-gradient) */
+  .text-gradient-animated {
+    background-image: linear-gradient(
+      110deg,
+      var(--brand-from),
+      var(--brand-to),
+      var(--brand-from)
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .bg-brand {
+    background-image: linear-gradient(
+      110deg,
+      var(--brand-from),
+      var(--brand-via),
+      var(--brand-to)
+    );
+  }
+
+  /* Subtle grid / dot backgrounds that adapt to theme */
+  .bg-grid {
+    background-image: linear-gradient(
+        to right,
+        color-mix(in oklab, var(--foreground) 6%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--foreground) 6%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+  }
+
+  .bg-dot {
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--foreground) 12%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  /* Glassmorphism surface */
+  .glass {
+    background-color: color-mix(in oklab, var(--card) 70%, transparent);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+  }
+
+  /* Gradient hairline border via mask */
+  .border-gradient {
+    position: relative;
+  }
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--brand-from) 55%, transparent),
+      transparent 45%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--foreground) 6%, transparent),
+      0 16px 40px -20px rgba(10, 22, 34, 0.22);
+  }
+
+  /* In dark mode, drop the coloured glow/illumination on cards — keep a clean,
+     neutral elevation shadow on the matte-black surface instead. */
+  .dark .shadow-glow {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--foreground) 7%, transparent),
+      0 18px 44px -24px rgba(0, 0, 0, 0.75);
+  }
+
+  /* Radial fade mask (e.g. fade grid into background) */
+  .mask-radial {
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 60%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 60%,
+      transparent 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
