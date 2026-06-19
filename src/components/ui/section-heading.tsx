@@ -21,13 +21,13 @@ export function SectionHeading({
     <div
       className={cn(
         "flex flex-col gap-4",
-        align === "center" ? "mx-auto max-w-2xl items-center text-center" : "items-start text-left",
+        align === "center"
+          ? "mx-auto max-w-4xl items-center text-center"
+          : "items-start text-left",
         className,
       )}
     >
-      {eyebrow && (
-        <Badge icon={eyebrowIcon}>{eyebrow}</Badge>
-      )}
+      {/* {eyebrow && <Badge icon={eyebrowIcon}>{eyebrow}</Badge>} */}
       <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.65rem] md:leading-[1.1]">
         {title}
       </h2>

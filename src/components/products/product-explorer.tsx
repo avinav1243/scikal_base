@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Check } from "lucide-react";
+import { Check, ExternalLink } from "lucide-react";
 import { productCategories, type Offering } from "@/lib/products";
 import { ProductDetailModal } from "@/components/products/product-detail-modal";
 import { cn } from "@/lib/utils";
@@ -23,9 +24,6 @@ export function ProductExplorer() {
       const id = window.location.hash.replace(/^#/, "");
       if (categoryIds.includes(id)) {
         setActiveId(id);
-        document
-          .getElementById("products")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     };
     syncFromHash();
@@ -35,7 +33,6 @@ export function ProductExplorer() {
 
   const activeCat =
     productCategories.find((c) => c.id === activeId) ?? productCategories[0];
-  const ActiveIcon = activeCat.icon;
 
   return (
     <>
@@ -58,7 +55,7 @@ export function ProductExplorer() {
               aria-controls="product-panel"
               onClick={() => setActiveId(cat.id)}
               className={cn(
-                "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200",
+                "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-lg font-medium transition-all duration-200",
                 isActive
                   ? "border-transparent bg-brand text-white shadow-glow"
                   : "border-border bg-card text-muted-foreground hover:-translate-y-0.5 hover:border-foreground/20 hover:text-foreground",
@@ -86,7 +83,7 @@ export function ProductExplorer() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="mx-auto max-w-2xl text-center">
+            <div className="mx-auto max-w-4xl text-center">
               {/* <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs font-medium text-primary">
                 <ActiveIcon className="size-3.5" />
                 {activeCat.name}
@@ -130,21 +127,17 @@ export function ProductExplorer() {
   );
 }
 
-function ProductCard({
-  item,
-  onOpen,
-}: {
-  item: Offering;
-  onOpen: () => void;
-}) {
-  const Icon = item.icon;
+function ProductCard({ item, onOpen }: { item: Offering; onOpen: () => void }) {
   return (
-    <button
-      type="button"
-      onClick={onOpen}
-      aria-label={`View details for ${item.name}`}
+    <article
       className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-foreground/15 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label={`Open quick view for ${item.name}`}
+        className="absolute inset-0 z-10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+      />
       {/* Figure — white mat for diagrams (legible on dark), cover for photos. */}
       <div
         className={cn(
@@ -158,18 +151,18 @@ function ProductCard({
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className={cn(
-            "transition-transform duration-500 group-hover:scale-[1.04]",
+            "transition-transform duration-500 scale-[1.04] group-hover:scale-[1.06]",
             item.imageTone === "figure" ? "object-contain p-3" : "object-cover",
           )}
         />
-        <span
+        {/* <span
           className={cn(
             "absolute left-4 top-4 inline-flex size-10 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-lg ring-1 ring-white/20",
             item.accent,
           )}
         >
           <Icon className="size-5" />
-        </span>
+        </span> */}
       </div>
 
       {/* Body */}
@@ -191,27 +184,37 @@ function ProductCard({
         <p className="relative mt-0.5 text-sm font-medium text-gradient">
           {item.tagline}
         </p>
-        <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
-          {item.description}
-        </p>
+        {item?.includeDescription && (
+          <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
+            {item.description}
+          </p>
+        )}
 
-        <ul className="relative mt-4 flex flex-col gap-2 border-t border-border pt-4">
-          {item.keyFeatures.slice(0, 3).map((f) => (
-            <li
-              key={f.title}
-              className="flex items-start gap-2 text-sm text-muted-foreground"
-            >
-              <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-              {f.title}
-            </li>
-          ))}
-        </ul>
+        {item?.includeKeyFeatures && (
+          <ul className="relative mt-4 flex flex-col gap-2 border-t border-border pt-4">
+            {item.keyFeatures.slice(0, 3).map((f) => (
+              <li
+                key={f.title}
+                className="flex items-start gap-2 text-sm text-muted-foreground"
+              >
+                <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                {f.title}
+              </li>
+            ))}
+          </ul>
+        )}
 
-        <span className="relative mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary">
-          View details
-          <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-        </span>
+        <Link
+          href={`/products/${item.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open full page for ${item.name}`}
+          className="relative z-20 mt-5 inline-flex w-fit items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-foreground"
+        >
+          Open in new page
+          <ExternalLink className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </Link>
       </div>
-    </button>
+    </article>
   );
 }

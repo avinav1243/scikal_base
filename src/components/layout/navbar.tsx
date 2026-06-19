@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -9,31 +11,29 @@ import { mainNav, type NavItem } from "@/lib/site";
 import { productCategories } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
-// Section ids the scroll-spy observes (one per real <section> on the page).
-const SPY_IDS = [
-  "home",
-  "about",
-  "story",
-  "mission",
-  "products",
-  "clients",
-  "team",
-  "contact",
-];
-
-const hashId = (href: string) => href.replace(/^#/, "");
+const hashId = (href: string) => href.split("#")[1] ?? "";
 
 // Shared nav-link styling.
 const linkBase =
   "rounded-full px-3.5 py-2 text-sm font-medium transition-colors";
-const linkActive = "bg-accent text-foreground";
-const linkInactive =
+const linkStyle =
   "text-muted-foreground hover:bg-accent/60 hover:text-foreground";
+
+function scrollToHash(id: string) {
+  const target =
+    document.getElementById(id) ?? document.getElementById("products");
+
+  if (!target) return;
+
+  const navOffset = 88;
+  const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+  window.scrollTo({ top, behavior: "smooth" });
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
-  const [active, setActive] = React.useState("");
+  const pathname = usePathname();
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -42,32 +42,29 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scroll-spy: highlight the nav item for the section nearest the top.
   React.useEffect(() => {
-    const els = SPY_IDS.map((id) => document.getElementById(id)).filter(
-      (el): el is HTMLElement => el !== null,
-    );
-    if (els.length === 0) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.2, 0.5, 1] },
-    );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+    const hash = window.location.hash.replace(/^#/, "");
+    if (!hash) return;
 
-  const isActive = (item: NavItem) => {
-    if (item.href === "#") return active === "home" || active === "";
-    if (item.children) return active === "products"; // Solutions group
-    return hashId(item.href) === active;
+    const timer = window.setTimeout(() => scrollToHash(hash), 100);
+    return () => window.clearTimeout(timer);
+  }, [pathname]);
+
+  const handleNavClick = (href: string) => (event: React.MouseEvent) => {
+    const hash = hashId(href);
+
+    setOpen(false);
+
+    if (!hash) return;
+    if (href.startsWith("/#") && pathname !== "/") return;
+
+    event.preventDefault();
+
+    const nextUrl = href.startsWith("/#") ? href : `#${hash}`;
+    window.history.pushState(null, "", nextUrl);
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+    scrollToHash(hash);
   };
-
-  const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <header
@@ -82,17 +79,13 @@ export function Navbar() {
         aria-label="Primary"
         className="mx-auto flex h-16 w-full max-w-[96rem] items-center justify-between px-5 sm:px-6 lg:px-8"
       >
-        <a
-          href="#top"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollTop();
-          }}
-          aria-label="SciKal Research — back to top"
+        <Link
+          href="/"
+          aria-label="SciKal Research - back to top"
           className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <Logo priority />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-0.5 md:flex">
           {mainNav.map((item) =>
@@ -100,28 +93,17 @@ export function Navbar() {
               <DesktopDropdown
                 key={item.href}
                 item={item}
-                active={isActive(item)}
+                onNavigate={handleNavClick}
               />
             ) : (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
-                  onClick={
-                    item.href === "#"
-                      ? (e) => {
-                          e.preventDefault();
-                          scrollTop();
-                        }
-                      : undefined
-                  }
-                  aria-current={isActive(item) ? "page" : undefined}
-                  className={cn(
-                    linkBase,
-                    isActive(item) ? linkActive : linkInactive,
-                  )}
+                  onClick={handleNavClick(item.href)}
+                  className={cn(linkBase, linkStyle)}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ),
           )}
@@ -129,8 +111,9 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
+            onClick={handleNavClick("/#contact")}
             className={buttonVariants({
               variant: "brand",
               size: "sm",
@@ -139,7 +122,7 @@ export function Navbar() {
           >
             Let&rsquo;s collaborate
             <ArrowRight />
-          </a>
+          </Link>
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -163,24 +146,24 @@ export function Navbar() {
         <ul className="flex flex-col gap-1 px-5 py-4">
           {mainNav.map((item) => (
             <li key={item.href}>
-              <a
+              <Link
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={handleNavClick(item.href)}
                 className="block rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
               >
                 {item.label}
-              </a>
+              </Link>
               {item.children && (
                 <ul className="ml-3 border-l border-border pl-3">
                   {item.children.map((child) => (
                     <li key={child.href}>
-                      <a
+                      <Link
                         href={child.href}
-                        onClick={() => setOpen(false)}
+                        onClick={handleNavClick(child.href)}
                         className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                       >
                         {child.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -188,9 +171,9 @@ export function Navbar() {
             </li>
           ))}
           <li className="pt-2">
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
+            <Link
+              href="/#contact"
+              onClick={handleNavClick("/#contact")}
               className={buttonVariants({
                 variant: "brand",
                 size: "md",
@@ -199,7 +182,7 @@ export function Navbar() {
             >
               Let&rsquo;s collaborate
               <ArrowRight />
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -212,7 +195,13 @@ export function Navbar() {
  * moment an item is selected. Each row is enriched from the product catalogue
  * (icon + tagline) so the menu reads as a proper solutions overview.
  */
-function DesktopDropdown({ item, active }: { item: NavItem; active: boolean }) {
+function DesktopDropdown({
+  item,
+  onNavigate,
+}: {
+  item: NavItem;
+  onNavigate: (href: string) => (event: React.MouseEvent) => void;
+}) {
   const [open, setOpen] = React.useState(false);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -233,16 +222,15 @@ function DesktopDropdown({ item, active }: { item: NavItem; active: boolean }) {
 
   return (
     <li className="relative" onMouseEnter={openNow} onMouseLeave={closeSoon}>
-      <a
+      <Link
         href={item.href}
         aria-haspopup="true"
         aria-expanded={open}
-        onClick={() => setOpen(false)}
-        className={cn(
-          "inline-flex items-center gap-1",
-          linkBase,
-          active ? linkActive : linkInactive,
-        )}
+        onClick={(event) => {
+          setOpen(false);
+          onNavigate(item.href)(event);
+        }}
+        className={cn("inline-flex items-center gap-1", linkBase, linkStyle)}
       >
         {item.label}
         <ChevronDown
@@ -251,7 +239,7 @@ function DesktopDropdown({ item, active }: { item: NavItem; active: boolean }) {
             open && "rotate-180",
           )}
         />
-      </a>
+      </Link>
 
       <div
         className={cn(
@@ -268,10 +256,13 @@ function DesktopDropdown({ item, active }: { item: NavItem; active: boolean }) {
             );
             const CatIcon = cat?.icon;
             return (
-              <a
+              <Link
                 key={child.href}
                 href={child.href}
-                onClick={() => setOpen(false)}
+                onClick={(event) => {
+                  setOpen(false);
+                  onNavigate(child.href)(event);
+                }}
                 className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-accent"
               >
                 {CatIcon && (
@@ -289,7 +280,7 @@ function DesktopDropdown({ item, active }: { item: NavItem; active: boolean }) {
                     </span>
                   )}
                 </span>
-              </a>
+              </Link>
             );
           })}
         </div>

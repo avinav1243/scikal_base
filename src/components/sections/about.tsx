@@ -7,14 +7,14 @@ import { siteConfig } from "@/lib/site";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-24">
+    <section id="about" className=" py-24">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div>
-              <Badge icon={<Users />} className="mb-5">
+              {/* <Badge icon={<Users />} className="mb-5">
                 About us
-              </Badge>
+              </Badge> */}
               <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 Scientists building for scientists
               </h2>

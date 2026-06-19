@@ -1,12 +1,49 @@
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Mail, MapPin } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { LinkedinIcon } from "@/components/brand/social-icons";
 import { Container } from "@/components/ui/container";
 import { siteConfig, footerNav } from "@/lib/site";
 
+const hashId = (href: string) => href.split("#")[1] ?? "";
+
+function scrollToHash(id: string) {
+  const target = document.getElementById(id) ?? document.getElementById("products");
+
+  if (!target) return;
+
+  const navOffset = 88;
+  const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
 export function Footer() {
   const year = "2026"; // build-time constant
+  const pathname = usePathname();
+
+  const handleFooterLinkClick =
+    (href: string) => (event: React.MouseEvent) => {
+      const hash = hashId(href);
+
+      if (!hash) return;
+
+      const targetPath = href.startsWith("/#")
+        ? "/"
+        : href.startsWith("/")
+          ? href.split("#")[0]
+          : pathname;
+
+      if (targetPath !== pathname) return;
+
+      event.preventDefault();
+      window.history.pushState(null, "", href);
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
+      scrollToHash(hash);
+    };
 
   return (
     <footer className="relative mt-24 border-t border-border bg-muted/40">
@@ -56,6 +93,7 @@ export function Footer() {
                   <li key={`${group.title}-${link.label}`}>
                     <Link
                       href={link.href}
+                      onClick={handleFooterLinkClick(link.href)}
                       className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link.label}
@@ -71,7 +109,6 @@ export function Footer() {
           <p>
             © {year} {siteConfig.name}. All rights reserved.
           </p>
-          <p className="font-mono text-xs">Chicago • Bengaluru</p>
         </div>
       </Container>
     </footer>

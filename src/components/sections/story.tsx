@@ -7,17 +7,14 @@ import { buttonVariants } from "@/components/ui/button";
 
 export function Story() {
   return (
-    <section
-      id="story"
-      className="scroll-mt-24 border-y border-border bg-muted/60 py-24"
-    >
+    <section id="story" className="border-y border-border bg-muted/60 py-24">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div>
-              <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-primary">
+              {/* <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-primary">
                 <GraduationCap className="size-4" /> Our origin
-              </p>
+              </p> */}
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 Why SciKal was born
               </h2>

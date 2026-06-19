@@ -16,6 +16,7 @@ import {
   Wrench,
   Microscope,
   Workflow,
+  Dna,
 } from "lucide-react";
 
 export type KeyFeature = { title: string; body: string };
@@ -45,6 +46,8 @@ export type Offering = {
    * - "photo"  — carries its own (dark) background (rendered edge-to-edge)
    */
   imageTone: "figure" | "photo";
+  includeKeyFeatures?: boolean;
+  includeDescription?: boolean;
 };
 
 export type ProductCategory = {
@@ -65,6 +68,152 @@ export type ProductCategory = {
  */
 export const productCategories: ProductCategory[] = [
   {
+    id: "design-computational-biology",
+    name: "Computational Biology",
+    icon: BrainCircuit,
+    tagline: "From raw frames to publishable insight",
+    description:
+      "The computation and engineering behind the instruments — machine-learning behavioural scoring, imaging analysis, and custom hardware/software designed around your assay.",
+    items: [
+      {
+        id: "bulk-rnaseq",
+        name: "Bulk mRNA-seq Analysis",
+        subtitle: "End-to-End Transcriptomic Profiling",
+        tagline: "From raw reads to transcriptional insight",
+        includeKeyFeatures: false,
+        includeDescription: false,
+        description:
+          "Full-pipeline bulk RNA-seq analysis — from FASTQ quality control through differential expression to pathway enrichment — delivering publication-ready figures and reproducible notebooks.",
+        overview:
+          "We analyze bulk RNA-seq datasets to identify differentially expressed genes, altered pathways, and biologically meaningful transcriptional signatures across conditions, tissues, treatments, genotypes, and time points. Every step, from raw FASTQ processing to final figures, is documented in reproducible R/Python notebooks so your results are fully auditable and re-runnable.",
+        icon: Dna,
+        keyFeatures: [
+          {
+            title: "FASTQ Processing & Quantification",
+            body: "QC, adapter trimming, genome alignment, and count matrix generation form a robust, reproducible foundation for all downstream analyses.",
+          },
+          {
+            title: "Differential Expression Analysis",
+            body: "DESeq2, edgeR, and limma with careful experimental-design modelling to identify statistically robust changes across your contrasts of interest.",
+          },
+          {
+            title: "Visualisation & Sample QC",
+            body: "PCA, volcano plots, heatmaps, and clustering reveal structure in your data and flag outlier samples before they affect conclusions.",
+          },
+          {
+            title: "Pathway & Gene-Set Enrichment",
+            body: "GO, KEGG, Reactome, MSigDB, and GSEA analyses translate gene lists into biological mechanisms, with custom gene-set support.",
+          },
+        ],
+        accent: "from-emerald-500 to-teal-600",
+        image: "/products/computation/bulk_mrnaseq_bg_card.svg",
+        imageTone: "photo",
+      },
+      {
+        id: "scrna-seq",
+        name: "Single-Cell RNA-seq Analysis",
+        subtitle: "Cell Population & State Discovery",
+        tagline: "Resolve every cell, reveal every state",
+        includeKeyFeatures: false,
+        includeDescription: false,
+        description:
+          "Complete single-cell workflows that reveal cell populations, disease-specific cell states, treatment response programs, and cell-type-specific gene expression changes at single-cell resolution.",
+        overview:
+          "We build complete single-cell workflows that reveal cell populations, disease-specific cell states, treatment response programs, and cell-type-specific gene expression changes. From raw count matrices to annotated atlases and trajectory models, every step is documented in reproducible notebooks and presented with publication-ready figures.",
+        icon: Microscope,
+        keyFeatures: [
+          {
+            title: "QC, Normalisation & Batch Correction",
+            body: "Cell and gene filtering, doublet detection, normalisation, and batch correction ensure a clean, comparable foundation across samples and conditions.",
+          },
+          {
+            title: "Dimensionality Reduction & Clustering",
+            body: "UMAP/t-SNE embeddings, graph-based clustering, and marker discovery partition the transcriptional landscape into interpretable cell populations.",
+          },
+          {
+            title: "Cell-Type Annotation & Reference Mapping",
+            body: "Canonical marker panels and reference-atlas mapping assign confident identities to each cluster, cross-validated against published cell-type signatures.",
+          },
+          {
+            title: "Trajectory, Ligand–Receptor & Pathway Activity",
+            body: "Pseudotime and trajectory inference, differential abundance, cell-type-specific DE, ligand–receptor signalling, and pathway activity scoring connect cell states to biology.",
+          },
+        ],
+        accent: "from-violet-500 to-purple-600",
+        image: "/products/computation/scrna_seq_card_bg.svg",
+        imageTone: "photo",
+      },
+      {
+        id: "multiomics-integration",
+        name: "Multiomics Integration",
+        subtitle: "Cross-Platform Biological Discovery",
+        tagline: "One coherent story across every data layer",
+        includeKeyFeatures: false,
+        includeDescription: false,
+        description:
+          "We integrate transcriptomics, proteomics, metabolomics, epigenomics, clinical metadata, and phenotypic measurements to discover coordinated disease mechanisms and actionable biomarkers.",
+        overview:
+          "We integrate transcriptomics, proteomics, metabolomics, epigenomics, clinical metadata, and phenotypic measurements to discover coordinated disease mechanisms and actionable biomarkers. Our workflows harmonise heterogeneous platforms into a unified analytical framework, then apply network, statistical, and machine-learning methods to surface the signals that matter.",
+        icon: Network,
+        keyFeatures: [
+          {
+            title: "Cross-Platform Harmonisation & Feature Engineering",
+            body: "Data normalisation, batch alignment, and feature engineering reconcile heterogeneous platforms into a consistent, analysis-ready matrix.",
+          },
+          {
+            title: "Integrated Clustering & Network Analysis",
+            body: "Multi-omics factor analysis, correlation networks, and module detection reveal co-regulated biological programmes spanning data layers.",
+          },
+          {
+            title: "Biomarker Discovery",
+            body: "Statistical and ML-based feature selection identify robust multiomics biomarkers validated across cohorts and data types.",
+          },
+          {
+            title: "Interpretable Models & Validation Strategy",
+            body: "SHAP values, feature ranking, and pathway-level integration translate complex models into mechanistic hypotheses with clear validation roadmaps.",
+          },
+        ],
+        accent: "from-orange-500 to-rose-600",
+        image: "/products/computation/multiomics_card_bg.svg",
+        imageTone: "photo",
+      },
+      {
+        id: "pkpd-modeling",
+        name: "PK/PD Modeling & Dose Simulation",
+        subtitle: "Rational Dose Selection & Translational Modelling",
+        tagline: "Connect dose, exposure, and effect",
+        includeKeyFeatures: false,
+        includeDescription: false,
+        description:
+          "We develop pharmacokinetic and pharmacodynamic models to connect dose, exposure, target engagement, efficacy, and safety — supporting rational dose selection and translational decision-making.",
+        overview:
+          "We develop pharmacokinetic and pharmacodynamic models to connect dose, exposure, target engagement, efficacy, and safety. From compartmental PK fitting to population variability modelling and Monte Carlo simulations, our analyses support rational dose selection, study design, and clear client-facing reports for regulatory and strategic decisions.",
+        icon: FlaskConical,
+        keyFeatures: [
+          {
+            title: "Compartmental PK Modelling",
+            body: "One-, two-, and multi-compartment models fitted to oral, IV, and multi-route dosing data characterise absorption, distribution, and elimination.",
+          },
+          {
+            title: "Population Variability & Mixed-Effects Concepts",
+            body: "Nonlinear mixed-effects modelling principles capture between-subject variability and covariate relationships across patient populations.",
+          },
+          {
+            title: "Exposure–Response & PD Modelling",
+            body: "Emax, indirect response, and disease-progression models link drug exposure to pharmacodynamic endpoints and efficacy readouts.",
+          },
+          {
+            title: "Monte Carlo Simulation & Uncertainty Analysis",
+            body: "Dose simulations propagate parameter uncertainty to predict clinical outcomes and inform dose justification with quantified confidence.",
+          },
+        ],
+        accent: "from-amber-500 to-yellow-600",
+        image: "/products/computation/pkpd_card_bg.svg",
+        imageTone: "photo",
+      },
+    ],
+  },
+  {
     id: "instrumentation",
     name: "Instrumentation, Design & Fabrication",
     icon: Microscope,
@@ -78,6 +227,8 @@ export const productCategories: ProductCategory[] = [
         kicker: "fly-VRL",
         subtitle: "fly-VRL: Automated Vertical Locomotor Assay for Drosophila",
         tagline: "Automated vertical locomotor assay",
+        includeKeyFeatures: true,
+        includeDescription: true,
         description:
           "A gravity-based, stress-free climbing assay that captures vertical locomotion at 250 FPS for high-resolution geotaxis and motor-phenotyping studies.",
         overview:
@@ -127,6 +278,8 @@ export const productCategories: ProductCategory[] = [
         kicker: "Random Positioning Machine",
         subtitle: "Random Positioning Machine for Gravitational Biology",
         tagline: "Near-weightlessness on the bench",
+        includeKeyFeatures: true,
+        includeDescription: true,
         description:
           "A Random Positioning Machine that continuously randomises orientation across axes to simulate near-weightlessness for gravitational-biology research.",
         overview:
@@ -164,6 +317,8 @@ export const productCategories: ProductCategory[] = [
         kicker: "Fly Bowl",
         subtitle: "Fly Bowl: High-Throughput Social Behaviour Assay",
         tagline: "High-throughput social-behaviour assay",
+        includeKeyFeatures: true,
+        includeDescription: true,
         description:
           "A Fly Bowl arena for high-throughput courtship and social-behaviour studies, with machine-learning annotation of interactions and social dynamics.",
         overview:
@@ -201,6 +356,8 @@ export const productCategories: ProductCategory[] = [
         kicker: "FLIC-inspired",
         subtitle: "Capacitance-Based Real-Time Feeding Assay",
         tagline: "Real-time capacitance feeding assay",
+        includeKeyFeatures: true,
+        includeDescription: true,
         description:
           "A capacitance-based, FLIC-inspired assay that records individual feeding events in real time, with circadian-rhythm integration for chronobiology studies.",
         overview:
@@ -234,6 +391,8 @@ export const productCategories: ProductCategory[] = [
         kicker: "Passive Avoidance Assay",
         subtitle: "Passive Avoidance: Closed-Loop Associative Learning",
         tagline: "Closed-loop associative learning",
+        includeKeyFeatures: true,
+        includeDescription: true,
         description:
           "A closed-loop passive-avoidance platform for associative-memory studies — programmable aversive stimuli triggered in real time from tracked behaviour.",
         overview:
@@ -263,86 +422,44 @@ export const productCategories: ProductCategory[] = [
       },
     ],
   },
-  {
-    id: "design-computational-biology",
-    name: "Computational Biology",
-    icon: BrainCircuit,
-    tagline: "From raw frames to publishable insight",
-    description:
-      "The computation and engineering behind the instruments — machine-learning behavioural scoring, imaging analysis, and custom hardware/software designed around your assay.",
-    items: [
-      {
-        id: "ml-scoring",
-        name: "AI / ML Behavioural Scoring",
-        subtitle: "Automated, Reproducible Behaviour Annotation",
-        tagline: "Automated, reproducible annotation",
-        description:
-          "Computer-vision pipelines that track animals frame by frame and score behaviour automatically — removing manual annotation and inter-rater variability.",
-        overview:
-          "Our behavioural-scoring pipelines apply computer vision and machine learning to track animals frame by frame and classify behaviour automatically. By removing manual annotation, they deliver objective, reproducible results that hold up across rigs, days, and labs.",
-        icon: BrainCircuit,
-        keyFeatures: [
-          {
-            title: "Per-Frame Pose & Trajectory Tracking",
-            body: "High-fidelity tracking extracts position, posture, and movement for every animal in every frame.",
-          },
-          {
-            title: "Automated Behaviour Classification",
-            body: "Trained models label behaviours of interest, replacing slow and subjective manual scoring.",
-          },
-          {
-            title: "Reproducible Across Rigs & Labs",
-            body: "Versioned models and protocols ensure consistent scoring wherever the assay runs.",
-          },
-          {
-            title: "Custom Model Training",
-            body: "We train and validate classifiers on your specific assay and behaviours of interest.",
-          },
-        ],
-        accent: "from-cyan-500 to-blue-600",
-        image: "/technology.jpg",
-        imageTone: "photo",
-      },
-    ],
-  },
-  {
-    id: "services",
-    name: "Services",
-    icon: Workflow,
-    tagline: "Comprehensive research solutions, tailored to your needs",
-    description:
-      "Engage SciKal end-to-end — from designing a custom behavioural assay to delivering a complete analysis pipeline. We meet your lab wherever the bottleneck is.",
-    items: [
-      {
-        id: "behavioral-phenotyping",
-        name: "Behavioral Phenotyping",
-        subtitle: "Custom Assays & High-Throughput Platforms",
-        tagline: "Custom assays, high throughput",
-        description:
-          "Tailored behavioural assays and high-throughput platforms, integrated with your imaging and neurophysiology workflows.",
-        overview:
-          "Our behavioural-phenotyping solutions cover the full arc of an experiment — designing custom assays, scaling them to high throughput, and integrating them with your imaging and neurophysiology workflows for a complete behavioural picture.",
-        icon: FlaskConical,
-        keyFeatures: [
-          {
-            title: "Custom Behavioral Assays",
-            body: "Assays designed around your research question and model organism.",
-          },
-          {
-            title: "High-Throughput Platforms",
-            body: "Parallelised setups to run large cohorts and screens efficiently.",
-          },
-          {
-            title: "Integrated with Imaging & Neurophysiology",
-            body: "Behaviour combined with imaging and physiology for richer datasets.",
-          },
-        ],
-        accent: "from-cyan-500 to-blue-600",
-        image: "/dataAnalytics.jpg",
-        imageTone: "figure",
-      },
-    ],
-  },
+  // {
+  //   id: "services",
+  //   name: "Services",
+  //   icon: Workflow,
+  //   tagline: "Comprehensive research solutions, tailored to your needs",
+  //   description:
+  //     "Engage SciKal end-to-end — from designing a custom behavioural assay to delivering a complete analysis pipeline. We meet your lab wherever the bottleneck is.",
+  //   items: [
+  //     {
+  //       id: "behavioral-phenotyping",
+  //       name: "Behavioral Phenotyping",
+  //       subtitle: "Custom Assays & High-Throughput Platforms",
+  //       tagline: "Custom assays, high throughput",
+  //       description:
+  //         "Tailored behavioural assays and high-throughput platforms, integrated with your imaging and neurophysiology workflows.",
+  //       overview:
+  //         "Our behavioural-phenotyping solutions cover the full arc of an experiment — designing custom assays, scaling them to high throughput, and integrating them with your imaging and neurophysiology workflows for a complete behavioural picture.",
+  //       icon: FlaskConical,
+  //       keyFeatures: [
+  //         {
+  //           title: "Custom Behavioral Assays",
+  //           body: "Assays designed around your research question and model organism.",
+  //         },
+  //         {
+  //           title: "High-Throughput Platforms",
+  //           body: "Parallelised setups to run large cohorts and screens efficiently.",
+  //         },
+  //         {
+  //           title: "Integrated with Imaging & Neurophysiology",
+  //           body: "Behaviour combined with imaging and physiology for richer datasets.",
+  //         },
+  //       ],
+  //       accent: "from-cyan-500 to-blue-600",
+  //       image: "/dataAnalytics.jpg",
+  //       imageTone: "figure",
+  //     },
+  //   ],
+  // },
 ];
 
 /** Flat list of every offering (used for JSON-LD / counts). */
@@ -366,4 +483,8 @@ export const customServiceTags = [
 
 export function getCategory(id: string) {
   return productCategories.find((c) => c.id === id);
+}
+
+export function getOffering(id: string) {
+  return allOfferings.find((offering) => offering.id === id);
 }

@@ -1,32 +1,42 @@
-import { ArrowRight, Boxes, Sparkles } from "lucide-react";
+import { Boxes } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Reveal } from "@/components/ui/reveal";
-import { buttonVariants } from "@/components/ui/button";
 import { ProductExplorer } from "@/components/products/product-explorer";
-import { customServiceTags } from "@/lib/products";
 
 export function Products() {
   return (
     <section
       id="products"
-      className="scroll-mt-24 border-y border-border bg-muted/60 py-24"
+      className="relative isolate scroll-mt-24 overflow-hidden border-y border-border py-24"
     >
-      <Container>
+      {/* GIF background: active. Separate light/dark filters keep the same GIF usable in both themes. */}
+      {/* <div className="absolute inset-0 -z-10 bg-[url('/products/kPV8C2.gif')] bg-cover bg-center bg-fixed [filter:invert(1)_hue-rotate(180deg)_contrast(0.92)_saturate(0.72)_brightness(1.18)] dark:hidden" />
+      <div className="absolute inset-0 -z-10 hidden bg-[url('/products/kPV8C2.gif')] bg-cover bg-center bg-fixed [filter:contrast(0.95)_saturate(0.86)_brightness(0.82)] dark:block" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_72%,transparent),color-mix(in_oklab,var(--background)_46%,transparent)_48%,color-mix(in_oklab,var(--background)_76%,transparent))]" /> */}
+
+      {/* Minimal theme-aware background: uncomment these two lines and comment the GIF background above to compare. */}
+      {/* <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_12%,color-mix(in_oklab,var(--primary)_12%,transparent),transparent_32%),radial-gradient(circle_at_80%_8%,color-mix(in_oklab,var(--brand-to)_10%,transparent),transparent_30%),linear-gradient(180deg,var(--background),var(--muted)_48%,var(--background))]" /> */}
+      {/* <div className="absolute inset-0 -z-10 bg-grid opacity-[0.16] mask-radial dark:opacity-[0.08]" /> */}
+
+      {/* Custom generated background: uncomment these two lines and comment the GIF background above to compare. */}
+      {/* <div className="absolute inset-0 -z-10 bg-[url('/products/scikal-products-bg.png')] bg-cover bg-center bg-fixed [filter:invert(1)_hue-rotate(180deg)_contrast(1.05)_saturate(1.05)] dark:hidden" /> */}
+      {/* <div className="absolute inset-0 -z-10 hidden bg-[url('/products/scikal-products-bg.png')] bg-cover bg-center bg-fixed [filter:contrast(1.08)_saturate(1.08)] dark:block" /> */}
+
+      <Container className="relative">
         <SectionHeading
-          eyebrow="Products & solutions"
+          // eyebrow="Products & solutions"
           eyebrowIcon={<Boxes />}
           title="Everything we build to accelerate your science"
           description="Three categories, one mission — precision instrumentation, the computational biology behind it, and tailored end-to-end solutions. Pick a category, then open any product for full details."
         />
       </Container>
 
-      <Container className="mt-12">
+      <Container className="relative mt-12">
         <ProductExplorer />
       </Container>
 
       {/* Custom services callout */}
-      <Container className="mt-8">
+      {/* <Container className="mt-8">
         <Reveal>
           <div className="border-gradient relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-glow sm:p-12">
             <div className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-40 mask-radial" />
@@ -40,8 +50,8 @@ export function Products() {
                 </h3>
                 <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
                   We provide tailored solutions designed specifically for your
-                  lab&rsquo;s needs — from custom assay development to specialised
-                  data-analysis pipelines.
+                  lab&rsquo;s needs — from custom assay development to
+                  specialised data-analysis pipelines.
                 </p>
                 <a
                   href="#contact"
@@ -69,7 +79,7 @@ export function Products() {
             </div>
           </div>
         </Reveal>
-      </Container>
+      </Container> */}
     </section>
   );
 }

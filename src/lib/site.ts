@@ -53,21 +53,23 @@ export type NavItem = { label: string; href: string; children?: NavItem[] };
 
 // Single-page site: all navigation targets are in-page section anchors.
 export const productCategoriesNav: NavItem[] = [
-  { label: "Instrumentation, Design & Fabrication", href: "#instrumentation" },
   {
     label: "Computational Biology",
-    href: "#design-computational-biology",
+    href: "/#design-computational-biology",
   },
-  { label: "Services", href: "#services" },
+  {
+    label: "Instrumentation, Design & Fabrication",
+    href: "/#instrumentation",
+  },
 ];
 
 export const mainNav: NavItem[] = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#about" },
-  { label: "Solutions", href: "#products", children: productCategoriesNav },
-  { label: "Clients", href: "#clients" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Solutions", href: "/#products", children: productCategoriesNav },
+  { label: "Clients", href: "/#clients" },
+  { label: "Team", href: "/team" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const footerNav: { title: string; links: NavItem[] }[] = [
@@ -78,18 +80,18 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "#about" },
-      { label: "Our story", href: "#story" },
-      { label: "Mission", href: "#mission" },
-      { label: "Team", href: "#team" },
+      { label: "About", href: "/about" },
+      { label: "Our story", href: "/about#story" },
+      { label: "Mission", href: "/about#mission" },
+      { label: "Team", href: "/team" },
     ],
   },
   {
     title: "Connect",
     links: [
-      { label: "Clients & Collaborations", href: "#clients" },
-      { label: "Contact", href: "#contact" },
-      { label: "Let's collaborate", href: "#contact" },
+      { label: "Clients & Collaborations", href: "/#clients" },
+      { label: "Contact", href: "/#contact" },
+      { label: "Let's collaborate", href: "/#contact" },
     ],
   },
 ];

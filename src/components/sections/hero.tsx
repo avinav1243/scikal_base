@@ -36,11 +36,11 @@ export function Hero() {
 
       <Container className="relative">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <Reveal>
+          {/* <Reveal>
             <Badge icon={<Sparkles />} className="mb-6">
               Behavioral neuroscience, accelerated
             </Badge>
-          </Reveal>
+          </Reveal> */}
 
           <Reveal delay={0.05}>
             <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl md:leading-[1.05]">
@@ -52,10 +52,8 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              We help your science fly. SciKal Research builds precision
-              behavioural-assay platforms and the computational tools that turn
-              raw experiments into discovery — for neuroscience labs worldwide.
+            <p className="mt-6 max-w-3xl text-lg sm:text-xl leading-relaxed text-foreground/90">
+              From idea to publication — we're with you every step of the way.
             </p>
           </Reveal>
 

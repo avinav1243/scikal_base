@@ -77,7 +77,7 @@ export function ProductDetailModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 16, scale: 0.98 }}
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        className="relative my-0 w-full max-w-4xl overflow-hidden bg-card shadow-glow outline-none sm:my-4 sm:rounded-3xl sm:border sm:border-border"
+        className="relative my-0 w-full max-w-6xl overflow-hidden bg-card shadow-glow outline-none sm:my-4 sm:rounded-3xl sm:border sm:border-border"
       >
         {/* Banner — the product figure itself, with a scrim so the overlaid
             text stays legible (figures are lightened white-bg diagrams, so they
@@ -97,7 +97,7 @@ export function ProductDetailModal({
               offering.imageTone === "figure" ? "bg-black/55" : "bg-black/35",
             )}
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/25" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-black/5" />
 
           <button
             type="button"
@@ -109,14 +109,6 @@ export function ProductDetailModal({
           </button>
 
           <div className="relative z-10 flex flex-col items-center">
-            <span
-              className={cn(
-                "inline-flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg ring-1 ring-white/25",
-                offering.accent,
-              )}
-            >
-              <Icon className="size-8" />
-            </span>
             {offering.kicker && (
               <p className="mt-4 font-mono text-xs uppercase tracking-[0.18em] text-white/85">
                 {offering.kicker}
@@ -195,8 +187,8 @@ export function ProductDetailModal({
               Interested in this product?
             </p>
             <p className="mx-auto mt-1.5 max-w-md text-sm text-muted-foreground">
-              Contact us to learn more or request a custom configuration for your
-              lab.
+              Contact us to learn more or request a custom configuration for
+              your lab.
             </p>
             <a
               href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(

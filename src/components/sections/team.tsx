@@ -15,7 +15,7 @@ export function Team() {
     >
       <Container>
         <SectionHeading
-          eyebrow="Our team"
+          // eyebrow="Our team"
           eyebrowIcon={<Users />}
           title="The scientists & engineers behind SciKal"
           description="A multidisciplinary team merging neuroscience, engineering, and data science to accelerate research worldwide."

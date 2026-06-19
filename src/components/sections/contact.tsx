@@ -11,29 +11,22 @@ const details = [
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
   },
-  ...siteConfig.locations.map((loc) => ({
-    icon: MapPin,
-    label: "Office",
-    value: `${loc.city}, ${loc.country}`,
-    href: undefined as string | undefined,
-  })),
-  {
-    icon: Clock,
-    label: "Response time",
-    value: "Within 1–2 business days",
-    href: undefined as string | undefined,
-  },
+  ...siteConfig.locations
+    .filter((item) => item.city == "Chicago")
+    .map((loc) => ({
+      icon: MapPin,
+      label: "Office",
+      value: `${loc.city}, ${loc.country}`,
+      href: undefined as string | undefined,
+    })),
 ];
 
 export function Contact() {
   return (
-    <section
-      id="contact"
-      className="scroll-mt-24 border-t border-border py-24"
-    >
+    <section id="contact" className="scroll-m-0 border-t border-border py-24">
       <Container>
         <SectionHeading
-          eyebrow="Let's collaborate"
+          // eyebrow="Let's collaborate"
           eyebrowIcon={<MessageSquare />}
           title="Let's talk about your science"
           description="Reach out to discuss partnerships, research, or technology solutions. Whether you're comparing platforms or have a problem no tool solves yet, we'd love to hear from you."
@@ -72,9 +65,9 @@ export function Contact() {
                 Request a live demo
               </h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                Prefer to see a platform in action? Mention &ldquo;demo&rdquo; in
-                your message and we&rsquo;ll set up a walkthrough tailored to your
-                assay.
+                Prefer to see a platform in action? Mention &ldquo;demo&rdquo;
+                in your message and we&rsquo;ll set up a walkthrough tailored to
+                your assay.
               </p>
             </div>
           </div>

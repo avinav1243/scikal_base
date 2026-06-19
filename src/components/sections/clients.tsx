@@ -12,19 +12,17 @@ export function ClientsGrid() {
     >
       {clients.map((client) => (
         <li key={client.name} className="flex items-center justify-center">
-          {/* No tile/card — the logo sits directly on the section. The source
-              files are pre-rendered dark monochrome silhouettes on transparent
-              backgrounds (see /clients/mono), so they read on the light theme as
-              dark marks and on the dark theme as clean white ones via `invert`. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={client.logo}
-            alt={`${client.name} logo`}
-            width={176}
-            height={88}
-            loading="lazy"
-            className="max-h-14 w-auto max-w-[150px] object-contain opacity-80 transition-all duration-300 hover:scale-105 hover:opacity-100 dark:opacity-90 dark:invert dark:hover:opacity-100"
-          />
+          <span className="inline-flex min-h-20 min-w-44 items-center justify-center rounded-xl px-5 py-3 transition-colors duration-300 dark:bg-white dark:shadow-[0_12px_30px_rgba(0,0,0,0.22)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={client.logo}
+              alt={`${client.name} logo`}
+              width={176}
+              height={88}
+              loading="lazy"
+              className="max-h-14 w-auto max-w-[150px] object-contain opacity-85 transition-all duration-300 hover:scale-105 hover:opacity-100 dark:opacity-100"
+            />
+          </span>
         </li>
       ))}
     </ul>
@@ -33,17 +31,14 @@ export function ClientsGrid() {
 
 export function Clients() {
   return (
-    <section
-      id="clients"
-      className="relative isolate scroll-mt-24 overflow-hidden py-24"
-    >
+    <section id="clients" className="relative isolate overflow-hidden py-24">
       {/* Neutral background — subtle grid only, no coloured glow. */}
       {/* <div className="absolute inset-0 -z-30 bg-gradient-to-b from-background via-muted/20 to-background" />
       <div className="absolute inset-0 -z-10 bg-grid opacity-20 mask-radial" /> */}
 
       <Container className="relative">
         <SectionHeading
-          eyebrow="Clients & collaborations"
+          // eyebrow="Clients & collaborations"
           eyebrowIcon={<Handshake />}
           title="Trusted by leading research institutions"
           description="Proud to partner with leading academic institutions and industry organisations driving neuroscience forward."

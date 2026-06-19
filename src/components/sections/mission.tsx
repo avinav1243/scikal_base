@@ -23,10 +23,7 @@ const pillars = [
 
 export function Mission() {
   return (
-    <section
-      id="mission"
-      className="relative scroll-mt-24 overflow-hidden py-24"
-    >
+    <section id="mission" className="relative overflow-hidden py-24">
       <Container className="relative">
         <SectionHeading
           eyebrow="What drives us"

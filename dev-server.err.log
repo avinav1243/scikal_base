@@ -1,0 +1,349 @@
+[browser] Image with src "/products/microgravity.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "/technology.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification",
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+⨯ ReferenceError: Dna is not defined
+    at module evaluation (src\lib\products.ts:84:15)
+    at module evaluation (src\components\structured-data.tsx:2:1)
+    at module evaluation (src\app\layout.tsx:7:1)
+    at module evaluation (C:\Users\Shivshukla\Desktop\random\flc\scikal_base\.next\dev\server\chunks\ssr\[root-of-the-server]__1vq_-2q._.js:1171:47)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification", {
+  page: '/team'
+}
+[browser] Uncaught ReferenceError: Dna is not defined
+    at module evaluation (src/lib/products.ts:84:15)
+    at module evaluation (src/components/structured-data.tsx:2:1)
+    at module evaluation (src/app/layout.tsx:7:1)
+    at module evaluation (src/app/layout.tsx:112:1)
+  82 |         overview:
+  83 |           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, al...
+> 84 |         icon: Dna,
+     |               ^
+  85 |         keyFeatures: [
+  86 |           {
+  87 |             title: "FASTQ Processing & Quantification",
+⨯ The requested resource isn't a valid image for /technolog.jpg received null
+[browser] An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string. 
+[browser] Image is missing required "src" property: [object HTMLImageElement] 
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+[browser] An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string. 
+[browser] Image is missing required "src" property: [object HTMLImageElement] 
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ReferenceError: active is not defined
+    at <unknown> (src\components\layout\navbar.tsx:97:42)
+    at Array.map (<anonymous>)
+    at Navbar (src\components\layout\navbar.tsx:85:20)
+   95 |                   href={item.href}
+   96 |                   onClick={
+>  97 |                     item.href === "/" && active
+      |                                          ^
+   98 |                       ? (e) => {
+   99 |                           e.preventDefault();
+  100 |                           scrollTop(); {
+  digest: '4136746059'
+}
+⨯ ReferenceError: active is not defined
+    at <unknown> (src\components\layout\navbar.tsx:97:42)
+    at Array.map (<anonymous>)
+    at Navbar (src\components\layout\navbar.tsx:85:20)
+   95 |                   href={item.href}
+   96 |                   onClick={
+>  97 |                     item.href === "/" && active
+      |                                          ^
+   98 |                       ? (e) => {
+   99 |                           e.preventDefault();
+  100 |                           scrollTop(); {
+  digest: '4136746059'
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ReferenceError: active is not defined
+    at <unknown> (src\components\layout\navbar.tsx:70:42)
+    at Array.map (<anonymous>)
+    at Navbar (src\components\layout\navbar.tsx:58:20)
+  68 |                   href={item.href}
+  69 |                   onClick={
+> 70 |                     item.href === "/" && active
+     |                                          ^
+  71 |                       ? (e) => {
+  72 |                           e.preventDefault();
+  73 |                           scrollTop(); {
+  digest: '4136746059'
+}
+[browser] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). 
+⨯ ReferenceError: active is not defined
+    at <unknown> (src\components\layout\navbar.tsx:70:42)
+    at Array.map (<anonymous>)
+    at Navbar (src\components\layout\navbar.tsx:58:20)
+  68 |                   href={item.href}
+  69 |                   onClick={
+> 70 |                     item.href === "/" && active
+     |                                          ^
+  71 |                       ? (e) => {
+  72 |                           e.preventDefault();
+  73 |                           scrollTop(); {
+  digest: '4136746059'
+}
+[browser] Uncaught ReferenceError: active is not defined
+    at <unknown> (src/components/layout/navbar.tsx:101:24)
+    at Array.map (<anonymous>)
+    at Navbar (src/components/layout/navbar.tsx:96:21)
+    at RootLayout (src\app\layout.tsx:102:13)
+   99 |           >
+  100 |             Let&rsquo;s collaborate
+> 101 |             <ArrowRight />
+      |                        ^
+  102 |           </Link>
+  103 |           <button
+  104 |             type="button"
+⨯ ./src/components/layout/navbar.tsx:45:14
+Expected '</', got 'no substitution template literal'
+  [90m43 |[0m         className=[32m"mx-auto flex h-16 w-full max-w-[96rem] items-center justify-between px-...[0m
+  [90m44 |[0m       >
+[31m[1m>[0m [90m45 |[0m         <[33mLink[0m[32m`r`[0mn          href=[32m"/"[0m[32m`r`[0mn          aria-label=[32m"SciKal Research - back to top.[0m[32m..[0m
+  [90m   |[0m              [31m[1m^^^[0m
+  [90m46 |[0m
+  [90m47 |[0m         <ul className=[32m"hidden items-center gap-0.5 md:flex"[0m>
+  [90m48 |[0m           {mainNav.map((item) =>
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/layout/navbar.tsx
+    ./src/app/layout.tsx
+
+
+⨯ ./src/components/layout/navbar.tsx:45:14
+Expected '</', got 'no substitution template literal'
+  [90m43 |[0m         className=[32m"mx-auto flex h-16 w-full max-w-[96rem] items-center justify-between px-...[0m
+  [90m44 |[0m       >
+[31m[1m>[0m [90m45 |[0m         <[33mLink[0m[32m`r`[0mn          href=[32m"/"[0m[32m`r`[0mn          aria-label=[32m"SciKal Research - back to top.[0m[32m..[0m
+  [90m   |[0m              [31m[1m^^^[0m
+  [90m46 |[0m
+  [90m47 |[0m         <ul className=[32m"hidden items-center gap-0.5 md:flex"[0m>
+  [90m48 |[0m           {mainNav.map((item) =>
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/layout/navbar.tsx
+    ./src/app/layout.tsx
+
+
+[browser] Uncaught Error: ./src/components/layout/navbar.tsx:45:14
+Expected '</', got 'no substitution template literal'
+  43 |         className="mx-auto flex h-16 w-full max-w-[96rem] items-center justify-between px-...
+  44 |       >
+> 45 |         <Link`r`n          href="/"`r`n          aria-label="SciKal Research - back to top...
+     |              ^^^
+  46 |
+  47 |         <ul className="hidden items-center gap-0.5 md:flex">
+  48 |           {mainNav.map((item) =>
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/layout/navbar.tsx
+    ./src/app/layout.tsx
+
+
+    at <unknown> (Error: ./src/components/layout/navbar.tsx:45:14)
+    at <unknown> (Error: (./src/components/layout/navbar.tsx:45:14)
+[browser] Uncaught Error: ./src/components/layout/navbar.tsx:45:14
+Expected '</', got 'no substitution template literal'
+  43 |         className="mx-auto flex h-16 w-full max-w-[96rem] items-center justify-between px-...
+  44 |       >
+> 45 |         <Link`r`n          href="/"`r`n          aria-label="SciKal Research - back to top...
+     |              ^^^
+  46 |
+  47 |         <ul className="hidden items-center gap-0.5 md:flex">
+  48 |           {mainNav.map((item) =>
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/layout/navbar.tsx
+    ./src/app/layout.tsx
+
+
+    at <unknown> (Error: ./src/components/layout/navbar.tsx:45:14)
+    at <unknown> (Error: (./src/components/layout/navbar.tsx:45:14)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
