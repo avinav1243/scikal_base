@@ -254,7 +254,7 @@ function DesktopDropdown({
             const cat = productCategories.find(
               (c) => c.id === hashId(child.href),
             );
-            const CatIcon = cat?.icon;
+            // const CatIcon = cat?.icon;
             return (
               <Link
                 key={child.href}
@@ -265,20 +265,20 @@ function DesktopDropdown({
                 }}
                 className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-accent"
               >
-                {CatIcon && (
+                {/* {CatIcon && (
                   <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand text-white">
                     <CatIcon className="size-4" />
                   </span>
-                )}
+                )} */}
                 <span className="min-w-0">
                   <span className="block text-sm font-medium text-foreground">
                     {child.label}
                   </span>
-                  {cat?.tagline && (
+                  {/* {cat?.tagline && (
                     <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
                       {cat.tagline}
                     </span>
-                  )}
+                  )} */}
                 </span>
               </Link>
             );

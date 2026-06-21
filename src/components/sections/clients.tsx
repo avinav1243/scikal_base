@@ -1,5 +1,3 @@
-import { Handshake } from "lucide-react";
-
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { clients } from "@/lib/clients";
@@ -32,14 +30,8 @@ export function ClientsGrid() {
 export function Clients() {
   return (
     <section id="clients" className="relative isolate overflow-hidden py-24">
-      {/* Neutral background — subtle grid only, no coloured glow. */}
-      {/* <div className="absolute inset-0 -z-30 bg-gradient-to-b from-background via-muted/20 to-background" />
-      <div className="absolute inset-0 -z-10 bg-grid opacity-20 mask-radial" /> */}
-
       <Container className="relative">
         <SectionHeading
-          // eyebrow="Clients & collaborations"
-          eyebrowIcon={<Handshake />}
           title="Trusted by leading research institutions"
           description="Proud to partner with leading academic institutions and industry organisations driving neuroscience forward."
         />

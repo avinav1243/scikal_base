@@ -1,8 +1,6 @@
-import { Users, MapPin, Quote } from "lucide-react";
+import { MapPin, Quote } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-// import { MediaFrame } from "@/components/ui/media-frame";
 import { siteConfig } from "@/lib/site";
 
 export function About() {
@@ -12,9 +10,6 @@ export function About() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div>
-              {/* <Badge icon={<Users />} className="mb-5">
-                About us
-              </Badge> */}
               <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 Scientists building for scientists
               </h2>
@@ -51,27 +46,6 @@ export function About() {
               </div>
             </div>
           </Reveal>
-
-          {/* <Reveal delay={0.1} className="relative">
-            <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_70%_30%,var(--glow-violet),transparent_70%)] opacity-0 blur-2xl dark:opacity-40" />
-            <MediaFrame
-              src="/phenotype.jpg"
-              alt="Multi-animal Drosophila trajectories tracked in a Fly Bowl arena"
-              tone="photo"
-              overlay
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="aspect-[4/3]"
-            >
-              <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/15 bg-black/35 p-4 text-white backdrop-blur-md">
-                <p className="text-sm font-semibold leading-tight">
-                  Multi-animal social tracking
-                </p>
-                <p className="mt-0.5 text-xs text-white/75">
-                  Fly Bowl arena · ML-annotated trajectories
-                </p>
-              </figcaption>
-            </MediaFrame>
-          </Reveal> */}
           <Reveal delay={0.1}>
             <figure className="border-gradient relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-glow sm:p-10">
               <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-[radial-gradient(circle,var(--glow-violet),transparent_70%)] blur-2xl dark:opacity-0" />

@@ -1,4 +1,4 @@
-import { Mail, MapPin, MessageSquare, Clock, Handshake } from "lucide-react";
+import { Mail, MapPin, Handshake } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ContactForm } from "@/components/contact-form";
@@ -26,8 +26,6 @@ export function Contact() {
     <section id="contact" className="scroll-m-0 border-t border-border py-24">
       <Container>
         <SectionHeading
-          // eyebrow="Let's collaborate"
-          eyebrowIcon={<MessageSquare />}
           title="Let's talk about your science"
           description="Reach out to discuss partnerships, research, or technology solutions. Whether you're comparing platforms or have a problem no tool solves yet, we'd love to hear from you."
         />

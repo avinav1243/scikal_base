@@ -39,8 +39,6 @@ export default async function ProductPage({
 
   if (!offering) notFound();
 
-  const Icon = offering.icon;
-
   return (
     <main>
       <section className="relative isolate overflow-hidden border-b border-border">
@@ -72,15 +70,6 @@ export default async function ProductPage({
           </Link>
 
           <div className="mt-12 max-w-3xl text-white">
-            {/* <span
-              className={cn(
-                "inline-flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg ring-1 ring-white/25",
-                offering.accent,
-              )}
-            >
-              <Icon className="size-8" />
-            </span> */}
-
             {offering.kicker && (
               <p className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-white/75">
                 {offering.kicker}

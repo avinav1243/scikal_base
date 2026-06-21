@@ -1,24 +1,3 @@
-import {
-  type LucideIcon,
-  MoveVertical,
-  Orbit,
-  Heart,
-  Utensils,
-  Brain,
-  BrainCircuit,
-  LineChart,
-  ScanEye,
-  Network,
-  CircuitBoard,
-  FlaskConical,
-  BarChart3,
-  Cpu,
-  Wrench,
-  Microscope,
-  Workflow,
-  Dna,
-} from "lucide-react";
-
 export type KeyFeature = { title: string; body: string };
 
 export type Offering = {
@@ -33,7 +12,6 @@ export type Offering = {
   description: string;
   /** Full intro paragraph shown in the detail view. */
   overview: string;
-  icon: LucideIcon;
   /** Detailed, titled features shown in the detail view. */
   keyFeatures: KeyFeature[];
   /** Tailwind gradient stops for the accent. */
@@ -53,7 +31,6 @@ export type Offering = {
 export type ProductCategory = {
   id: string;
   name: string;
-  icon: LucideIcon;
   tagline: string;
   description: string;
   items: Offering[];
@@ -70,7 +47,6 @@ export const productCategories: ProductCategory[] = [
   {
     id: "design-computational-biology",
     name: "Computational Biology",
-    icon: BrainCircuit,
     tagline: "From raw frames to publishable insight",
     description:
       "The computation and engineering behind the instruments — machine-learning behavioural scoring, imaging analysis, and custom hardware/software designed around your assay.",
@@ -86,7 +62,6 @@ export const productCategories: ProductCategory[] = [
           "Full-pipeline bulk RNA-seq analysis — from FASTQ quality control through differential expression to pathway enrichment — delivering publication-ready figures and reproducible notebooks.",
         overview:
           "We analyze bulk RNA-seq datasets to identify differentially expressed genes, altered pathways, and biologically meaningful transcriptional signatures across conditions, tissues, treatments, genotypes, and time points. Every step, from raw FASTQ processing to final figures, is documented in reproducible R/Python notebooks so your results are fully auditable and re-runnable.",
-        icon: Dna,
         keyFeatures: [
           {
             title: "FASTQ Processing & Quantification",
@@ -120,7 +95,6 @@ export const productCategories: ProductCategory[] = [
           "Complete single-cell workflows that reveal cell populations, disease-specific cell states, treatment response programs, and cell-type-specific gene expression changes at single-cell resolution.",
         overview:
           "We build complete single-cell workflows that reveal cell populations, disease-specific cell states, treatment response programs, and cell-type-specific gene expression changes. From raw count matrices to annotated atlases and trajectory models, every step is documented in reproducible notebooks and presented with publication-ready figures.",
-        icon: Microscope,
         keyFeatures: [
           {
             title: "QC, Normalisation & Batch Correction",
@@ -154,7 +128,6 @@ export const productCategories: ProductCategory[] = [
           "We integrate transcriptomics, proteomics, metabolomics, epigenomics, clinical metadata, and phenotypic measurements to discover coordinated disease mechanisms and actionable biomarkers.",
         overview:
           "We integrate transcriptomics, proteomics, metabolomics, epigenomics, clinical metadata, and phenotypic measurements to discover coordinated disease mechanisms and actionable biomarkers. Our workflows harmonise heterogeneous platforms into a unified analytical framework, then apply network, statistical, and machine-learning methods to surface the signals that matter.",
-        icon: Network,
         keyFeatures: [
           {
             title: "Cross-Platform Harmonisation & Feature Engineering",
@@ -188,7 +161,6 @@ export const productCategories: ProductCategory[] = [
           "We develop pharmacokinetic and pharmacodynamic models to connect dose, exposure, target engagement, efficacy, and safety — supporting rational dose selection and translational decision-making.",
         overview:
           "We develop pharmacokinetic and pharmacodynamic models to connect dose, exposure, target engagement, efficacy, and safety. From compartmental PK fitting to population variability modelling and Monte Carlo simulations, our analyses support rational dose selection, study design, and clear client-facing reports for regulatory and strategic decisions.",
-        icon: FlaskConical,
         keyFeatures: [
           {
             title: "Compartmental PK Modelling",
@@ -216,7 +188,6 @@ export const productCategories: ProductCategory[] = [
   {
     id: "instrumentation",
     name: "Instrumentation, Design & Fabrication",
-    icon: Microscope,
     tagline: "Precision-engineered behavioural assay platforms",
     description:
       "Purpose-built hardware for behavioural neuroscience — gravity-based, high-throughput, and stress-free by design. Each platform pairs precise mechanics with real-time, camera-based readouts.",
@@ -233,7 +204,6 @@ export const productCategories: ProductCategory[] = [
           "A gravity-based, stress-free climbing assay that captures vertical locomotion at 250 FPS for high-resolution geotaxis and motor-phenotyping studies.",
         overview:
           "The fly-VRL (fly vertically rotating arena for locomotion) is a high-resolution, automated system designed to capture the nuances of climbing behavior in fruit flies. By replacing traditional manual methods with a precision-engineered platform, the VRL provides researchers with a robust tool for identifying subtle motor defects and studying the genetic basis of locomotion.",
-        icon: MoveVertical,
         keyFeatures: [
           {
             title: 'Automated "No-Stress" Assay',
@@ -269,7 +239,7 @@ export const productCategories: ProductCategory[] = [
           },
         ],
         accent: "from-cyan-500 to-blue-600",
-        image: "/products/locomotion.png",
+        image: "/products/instrumentation/locomotion.png",
         imageTone: "figure",
       },
       {
@@ -284,7 +254,6 @@ export const productCategories: ProductCategory[] = [
           "A Random Positioning Machine that continuously randomises orientation across axes to simulate near-weightlessness for gravitational-biology research.",
         overview:
           "The Microgravity Simulator is a bench-top Random Positioning Machine (RPM) that continuously reorients samples across multiple axes, averaging the gravity vector toward zero to recreate near-weightlessness without spaceflight. It enables controlled gravitational-biology experiments on cells, organoids, and small model organisms.",
-        icon: Orbit,
         keyFeatures: [
           {
             title: "2D & 3D Operation Modes",
@@ -308,7 +277,7 @@ export const productCategories: ProductCategory[] = [
           },
         ],
         accent: "from-blue-500 to-indigo-500",
-        image: "/products/microgravity.png",
+        image: "/products/instrumentation/microgravity.png",
         imageTone: "figure",
       },
       {
@@ -323,7 +292,6 @@ export const productCategories: ProductCategory[] = [
           "A Fly Bowl arena for high-throughput courtship and social-behaviour studies, with machine-learning annotation of interactions and social dynamics.",
         overview:
           "Courtship is a Fly Bowl–style arena built for high-throughput analysis of social and courtship behaviour in Drosophila. Multiple animals are recorded simultaneously while machine-learning models annotate interactions frame by frame, turning hours of video into structured, comparable social-dynamics data.",
-        icon: Heart,
         keyFeatures: [
           {
             title: "Multi-Animal Social Arena",
@@ -347,7 +315,7 @@ export const productCategories: ProductCategory[] = [
           },
         ],
         accent: "from-sky-400 to-cyan-500",
-        image: "/products/courtship-2.png",
+        image: "/products/instrumentation/courtship-2.png",
         imageTone: "figure",
       },
       {
@@ -362,7 +330,6 @@ export const productCategories: ProductCategory[] = [
           "A capacitance-based, FLIC-inspired assay that records individual feeding events in real time, with circadian-rhythm integration for chronobiology studies.",
         overview:
           "Feeding is a capacitance-based assay, inspired by the FLIC paradigm, that detects each contact between an animal and its food source in real time. By logging individual feeding events with millisecond precision, it resolves fine-grained feeding microstructure and integrates cleanly with circadian and metabolic studies.",
-        icon: Utensils,
         keyFeatures: [
           {
             title: "Capacitance-Based Event Detection",
@@ -382,7 +349,7 @@ export const productCategories: ProductCategory[] = [
           },
         ],
         accent: "from-teal-400 to-emerald-500",
-        image: "/products/feeding.png",
+        image: "/products/instrumentation/feeding.png",
         imageTone: "figure",
       },
       {
@@ -397,7 +364,6 @@ export const productCategories: ProductCategory[] = [
           "A closed-loop passive-avoidance platform for associative-memory studies — programmable aversive stimuli triggered in real time from tracked behaviour.",
         overview:
           "The Learning & Memory platform runs a passive-avoidance paradigm in a fully closed loop: behaviour is tracked live and used to trigger programmable aversive stimuli the moment an animal enters a designated zone. It delivers clean, reproducible learning curves for associative-memory and retention studies.",
-        icon: Brain,
         keyFeatures: [
           {
             title: "Closed-Loop Stimulus Control",
@@ -417,7 +383,7 @@ export const productCategories: ProductCategory[] = [
           },
         ],
         accent: "from-indigo-500 to-blue-500",
-        image: "/products/learning-memory.png",
+        image: "/products/instrumentation/learning-memory.png",
         imageTone: "figure",
       },
     ],

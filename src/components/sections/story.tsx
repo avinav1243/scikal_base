@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, GraduationCap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { MediaFrame } from "@/components/ui/media-frame";
@@ -12,15 +12,9 @@ export function Story() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div>
-              {/* <p className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-primary">
-                <GraduationCap className="size-4" /> Our origin
-              </p> */}
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 Why SciKal was born
               </h2>
-              {/* <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                A lab problem, turned into a global solution
-              </h2> */}
               <div className="mt-5 space-y-4 text-pretty text-base leading-relaxed text-muted-foreground">
                 <p>
                   A lab problem, turned into a global solution. Founded to help

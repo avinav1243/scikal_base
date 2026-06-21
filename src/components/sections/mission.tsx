@@ -5,17 +5,14 @@ import { Reveal } from "@/components/ui/reveal";
 
 const pillars = [
   {
-    icon: Workflow,
     title: "Bridge Biology & Technology",
     body: "Connecting scientific discovery with cutting-edge engineering.",
   },
   {
-    icon: Wrench,
     title: "Build Tools That Accelerate Science",
     body: "Creating innovative solutions for modern research challenges.",
   },
   {
-    icon: HeartHandshake,
     title: "Collaborate to Solve Problems",
     body: "Working together on real-world scientific breakthroughs.",
   },
@@ -39,13 +36,9 @@ export function Mission() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {pillars.map((p, i) => {
-            const Icon = p.icon;
             return (
               <Reveal key={p.title} delay={i * 0.07}>
                 <article className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/15 hover:shadow-glow">
-                  <span className="inline-flex size-12 items-center justify-center rounded-xl bg-brand text-white shadow-md">
-                    <Icon className="size-6" />
-                  </span>
                   <h3 className="mt-5 text-lg font-semibold tracking-tight">
                     {p.title}
                   </h3>

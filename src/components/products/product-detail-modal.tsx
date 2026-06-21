@@ -23,7 +23,6 @@ export function ProductDetailModal({
 }) {
   const [mounted, setMounted] = React.useState(false);
   const panelRef = React.useRef<HTMLDivElement>(null);
-  const Icon = offering.icon;
   const titleId = "product-detail-title";
 
   // Portal target (document.body) is only available on the client; this

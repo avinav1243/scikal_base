@@ -43,7 +43,6 @@ export function ProductExplorer() {
         className="flex flex-wrap justify-center gap-2"
       >
         {productCategories.map((cat) => {
-          const Icon = cat.icon;
           const isActive = cat.id === activeId;
           return (
             <button
@@ -61,7 +60,6 @@ export function ProductExplorer() {
                   : "border-border bg-card text-muted-foreground hover:-translate-y-0.5 hover:border-foreground/20 hover:text-foreground",
               )}
             >
-              <Icon className="size-4" />
               {cat.name}
             </button>
           );
@@ -84,10 +82,6 @@ export function ProductExplorer() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="mx-auto max-w-4xl text-center">
-              {/* <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs font-medium text-primary">
-                <ActiveIcon className="size-3.5" />
-                {activeCat.name}
-              </span> */}
               <h3 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
                 {activeCat.tagline}
               </h3>
@@ -129,9 +123,7 @@ export function ProductExplorer() {
 
 function ProductCard({ item, onOpen }: { item: Offering; onOpen: () => void }) {
   return (
-    <article
-      className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-foreground/15 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-    >
+    <article className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-foreground/15 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
       <button
         type="button"
         onClick={onOpen}
@@ -155,14 +147,6 @@ function ProductCard({ item, onOpen }: { item: Offering; onOpen: () => void }) {
             item.imageTone === "figure" ? "object-contain p-3" : "object-cover",
           )}
         />
-        {/* <span
-          className={cn(
-            "absolute left-4 top-4 inline-flex size-10 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-lg ring-1 ring-white/20",
-            item.accent,
-          )}
-        >
-          <Icon className="size-5" />
-        </span> */}
       </div>
 
       {/* Body */}
@@ -211,7 +195,7 @@ function ProductCard({ item, onOpen }: { item: Offering; onOpen: () => void }) {
           aria-label={`Open full page for ${item.name}`}
           className="relative z-20 mt-5 inline-flex w-fit items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-foreground"
         >
-          Open in new page
+          View Details
           <ExternalLink className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
       </div>
