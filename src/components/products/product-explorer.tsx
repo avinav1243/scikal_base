@@ -90,7 +90,14 @@ export function ProductExplorer() {
               </p>
             </div>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              className={cn(
+                "mt-10 grid gap-5 md:grid-cols-2",
+                activeId === "design-computational-biology"
+                  ? "lg:grid-cols-2"
+                  : "lg:grid-cols-3",
+              )}
+            >
               {activeCat.items.map((item) => (
                 <ProductCard
                   key={item.id}
